@@ -14,15 +14,18 @@ export const Home = () => {
   const [searchList, setSearchList] = useState<MovieDataType[]>([]);
   const {state} = useContext(MovieContext);
   console.log(state);
+  const {movies} = state;
 
-  const trendingList: any = [];
-  const recommendList: any =[];
+  const trendingList = movies.filter( item => item.isTrending === true);
+  const recommendList = movies.filter( item => item.isTrending !== true);
 
   // e: ChangeEvent<HTMLInputElement> vs e: { target: { value: SetStateAction<string> } }
   // Her iki parametreyi de kullanmak mümkün
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
-    console.log(search);
+    //console.log(search);
+    const newList = movies.filter(movie => movie.title.toLowerCase().includes(search.toLowerCase()));
+    setSearchList(newList);
   }
 
   return (
