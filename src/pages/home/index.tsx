@@ -1,14 +1,22 @@
-import React, { ChangeEvent, SetStateAction, useState } from 'react'
+import React, { ChangeEvent, SetStateAction, useContext, useState } from 'react'
 import { Layout } from '../../layout'
 import { Box, InputAdornment, InputBase, Paper, Typography } from '@mui/material'
 import SearchIcon from "../../assets/icons/icon-search.svg"
 import { Movie } from '../movie'
 import { MovieTrendList } from '../../components/movie-list/movieTrendList'
 import { MovieList } from '../../components/movie-list'
+import { MovieDataType } from '../../assets/data'
+import { MovieContext } from '../../context/movie-context'
 
 export const Home = () => {
 
   const [search, setSearch] = useState("");
+  const [searchList, setSearchList] = useState<MovieDataType[]>([]);
+  const {state} = useContext(MovieContext);
+  console.log(state);
+
+  const trendingList: any = [];
+  const recommendList: any =[];
 
   // e: ChangeEvent<HTMLInputElement> vs e: { target: { value: SetStateAction<string> } }
   // Her iki parametreyi de kullanmak mümkün

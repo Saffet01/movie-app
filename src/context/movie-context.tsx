@@ -1,6 +1,5 @@
 import { ReactNode, createContext, useReducer } from "react";
 import { MovieDataType, moviesData } from "../assets/data";
-import { MovieList } from "../components/movie-list";
 
 interface MovieContextProps {
     children: ReactNode
@@ -50,5 +49,5 @@ export const MovieContext = createContext<{
 
 export const MovieProvider = ({ children }: MovieContextProps) => {
     const [state, dispatch] = useReducer(MovieReducer, initialMovieState);
-    return <MovieContext.Provider value={state, dispatch} >{children}</MovieContext.Provider>
+    return <MovieContext.Provider value={{state, dispatch}} >{children}</MovieContext.Provider>
 }
