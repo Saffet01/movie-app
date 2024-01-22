@@ -1,4 +1,28 @@
-# Getting Started with Create React App
+# Movie Library App
+
+Movie Library App is a React-based web application that allows users to explore a curated list of movies and TV series. Users can search for specific titles, toggle bookmarks, and discover trending and recommended content.
+
+
+## Introduction
+Movie Library App provides a user-friendly interface to browse and bookmark movies and TV series. It aims to simplify the process of finding and managing favorite content.
+## Features
+
+- Search for movies or TV series.
+- Toggle bookmarks to save favorite items.
+- Explore trending and recommended content.
+- Responsive design for various devices.
+
+
+## Technologies Used
+- React
+- Material-UI
+- JavaScript
+- Typescript
+- Context API
+- HTML
+- CSS
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
