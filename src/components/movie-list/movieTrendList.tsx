@@ -8,7 +8,7 @@ interface MovieTrendListProps {
 }
 
 export const MovieTrendList = ({trendingList}:MovieTrendListProps) => {
-  console.log("trendingList List: ", trendingList);
+  //console.log("trendingList List: ", trendingList);
   return (
     <Box sx={{display: "flex", gap:2, overflowX:"scroll"}}>
       {trendingList.map(movie => (

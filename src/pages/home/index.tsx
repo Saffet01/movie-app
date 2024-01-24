@@ -29,7 +29,7 @@ export const Home = () => {
   }
 
   return (
-    <Layout>
+    <Layout data-testid='home'>
       <Paper component="form" sx={{
         display: "flex",
         alignItems: "center",

@@ -8,7 +8,7 @@ interface MovieListProps {
 }
 
 export const MovieList = ({recommendList}:MovieListProps) => {
-  console.log("Recommended List: ", recommendList);
+  //console.log("Recommended List: ", recommendList);
 
   return (
     <Grid container spacing={2}>
