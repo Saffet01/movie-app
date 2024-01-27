@@ -73,7 +73,7 @@ export const Home = () => {
             </Box>
           </Box>
         ) : (
-          <Box width="100%">
+          <Box width="100%" data-testid='search-result-title'>
             <Typography data-testid='results'>
               Found {searchList.length} results for "{search}"{""}
             </Typography>

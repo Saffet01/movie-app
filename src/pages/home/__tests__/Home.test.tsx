@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Home } from '../index';
 import { MovieContext } from '../../../context/movie-context';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -82,18 +82,12 @@ describe('<Home/> component', function () {
             </Router>
         );
 
-        const inputElement = screen.getByTestId('textField') as HTMLInputElement;
-        inputElement.value = 'Movie1';
+        const inputElement = screen.getByPlaceholderText('Search for movies or Tv series.') as HTMLInputElement;
+        fireEvent.change(inputElement, {target: {value: 'Movie1'}});
         expect(inputElement.value).toBe('Movie1');
-
-        fireEvent.input(inputElement);
         
-        await waitFor(() => {
-            expect(screen.getByText((content, element) => {
-                return content.includes('Found') && /\d+ results for/.test(content);
-            })).toBeInTheDocument();
-        });
-
+        const resultTitle = await screen.findByTestId('search-result-title');
+        expect(resultTitle).toBeInTheDocument();
     });
 
 })
