@@ -1,6 +1,6 @@
 import React, { ChangeEvent, SetStateAction, useContext, useState } from 'react'
 import { Layout } from '../../layout'
-import { Box, InputAdornment, InputBase, Paper, Typography } from '@mui/material'
+import { Box, InputAdornment, InputBase, Paper, Typography,TextField } from '@mui/material'
 import SearchIcon from "../../assets/icons/icon-search.svg"
 import { Movie } from '../movie'
 import { MovieTrendList } from '../../components/movie-list/movieTrendList'
@@ -13,7 +13,7 @@ export const Home = () => {
   const [search, setSearch] = useState("");
   const [searchList, setSearchList] = useState<MovieDataType[]>([]);
   const {state} = useContext(MovieContext);
-  console.log(state);
+  //console.log("state",state);
   const {movies} = state;
 
   const trendingList = movies.filter( item => item.isTrending === true);
@@ -39,7 +39,7 @@ export const Home = () => {
         border: "none"
       }}>
 
-        <InputBase placeholder='Search for movies or Tv series.' sx={{
+        <TextField data-testid='textField' placeholder='Search for movies or Tv series.' sx={{
           ml: 1,
           flex: 1,
           color: "white",
@@ -47,11 +47,11 @@ export const Home = () => {
         }}
           value={search}
           onChange={handleSearch}
-          startAdornment={
-            <InputAdornment position='start' >
-              <img src={SearchIcon} alt="search icon" width={20} height={20} />
-            </ InputAdornment >
-          }
+          // startAdornment={
+          //   <InputAdornment position='start' >
+          //     <img src={SearchIcon} alt="search icon" width={20} height={20} />
+          //   </ InputAdornment >
+          // }
         />
 
       </Paper>
@@ -74,7 +74,7 @@ export const Home = () => {
           </Box>
         ) : (
           <Box width="100%">
-            <Typography>
+            <Typography data-testid='results'>
               Found {searchList.length} results for "{search}"{""}
             </Typography>
             <MovieList recommendList={searchList} />
