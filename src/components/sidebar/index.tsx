@@ -78,8 +78,9 @@ export const Sidebar = () => {
                             gap: 4,
                         }}
                     >
-                        {navLinks.map((item) => (
+                        {navLinks.map((item, index) => (
                             <Link
+                                data-testid={`sidebar-link-${index}`}
                                 key={item.name}
                                 to={item.link}
                                 style={{ textDecoration: "none" }}
