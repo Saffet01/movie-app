@@ -65,7 +65,7 @@ export const Movie = () => {
             <MovieList recommendList={search === "" ? movies : searchList} />
           </Box>
         ) : (
-          <Box width="100%">
+          <Box data-testid='search-result-title' width="100%">
             <Typography>
               Found {searchList.length} results for "{search}"{""}
             </Typography>
